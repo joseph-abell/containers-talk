@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Containers</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Containers</h1>
+				</section>
+
+				<section>
+					<h2>What we'll discuss</h2>
+
+					<ul>
+						<li>Containers</li>
+						<li>Docker Containers</li>
+						<li>Docker Compose</li>
+						<li>Kubernetes</li>
+						<li>Pods</li>
+						<li>Services</li>
+						<li>Deployments</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Containers</h2>
+					<p>Containers are a way to deploy our applications</p>
+					<p>They act as an extraction between the application and the server</p>
+				</section>
+				<section>
+					<h2>Docker Containers</h2>
+					<p>A way to help you not care about where your app is running.</p>
+					<p>Meant to be the simplest way you go from nothing to a working application</p>
+					<ul>
+						<li>You get a stripped down operating system</li>
+						<li>You install any extras you need</li>
+						<li>You run your app</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Docker Compose</h2>
+					<div style="font-size: 0.8em;">
+						<p>A way to work with multiple docker containers on one machine</p>
+						<ul>
+							<li>Allows you to set up containers that need to interact to provide a service</li>
+							<li>Allows containers to talk to each other by setting up interconnected ports</li>
+							<li>Lets you describe what you want, rather than describe how to make what you want.
+								<ul>
+									<li>Easier to reason about</li>
+									<li>Easier to replicate</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					
+				</section>
+				<section>
+					<h2>Kubernetes</h2>
+					<p>A way to work with multiple docker containers on <b>multiple</b> machines</p>
+					<ul>
+						<li>More resilient to errors</li>
+						<li>Platform agnostic</li>
+						<li>Allows a user to take their setup and move to a different provider</li>
+						<li>Can be run locally, on premises or on a cloud provider</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Pod</h2>
+					<div style="font-size: 0.8em;">
+					<p>Metadata for a container. Kubernetes uses this metadata to keep your app stable.</p>
+					<ul>
+						<li>Pods are created to meet demand of your app</li>
+						<li>Pods are killed when there is a fault with a container.</li>
+						<li>Treat as ephemeral</li>
+						<li>You can have more than one container to a pod, just be aware that anything in a pod will scale together.</li>
+						<li>Pods will only be available when all containers inside them are marked as healthy</li>
+					</ul>
+				</div>
+				</section>
+				<section>
+					<h2>Service</h2>
+					<p>How you connect to containers in a stable manner.</p>
+					<ul>
+						<li>They provide a name and ip address which will never change</li>
+						<li>They will keep a list of the relevant pods, and will direct traffic to pods when they are healthy.</li>
+						<li>If a pod reports as unhealthy, they are removed from the list and an identical pod is created.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Deployments</h2>
+					<p>Help you make rolling deployments, where pods are replaced one by one. Treats rollbacks in the same manner.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
