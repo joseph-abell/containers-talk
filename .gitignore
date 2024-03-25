@@ -10,7 +10,6 @@ tmp/**
 node_modules/
 .sass-cache
 .github
-dist
 examples
 test
 demo.html
